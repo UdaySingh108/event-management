@@ -12,4 +12,10 @@ const authMiddleware = (req, res, next) => {
         res.status(401).json({ message: 'Token is not valid' });
     }
 };
+export const restrictGuest = (req, res, next) => {
+    if (req.user?.role === 'guest') {
+      return res.status(403).json({ message: 'Guests are not allowed to perform this action' });
+    }
+    next();
+  };
 export default authMiddleware;

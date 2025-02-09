@@ -33,4 +33,12 @@ const login = async (req, res) => {
     res.status(500).json({ message: 'Server Error' });
   }
 };
-export { register, login };
+const guestLogin = (req, res) => {
+  try {
+    const guestToken = jwt.sign({ role: 'guest' }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    res.json({ token: guestToken });
+  } catch (error) {
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
+export { register, login,guestLogin };
