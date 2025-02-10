@@ -1,6 +1,9 @@
 # event-management
 event-management app 
 
+Deployment links  
+
+https://benevolent-beignet-666ff4.netlify.app
 
 Features-->
 
